@@ -1,0 +1,31 @@
+geometry:
+  nodes: "setup/nodes.csv"
+  fixed: "setup/fixed.csv"
+  force: "setup/for.csv"
+  velocity: "setup/velocity.csv"
+
+material: 
+  which material: fluid # elastic or fluid
+  constitutive_law:
+    elastic:
+      properties:
+          E: 100
+          Nu: 0.3
+          rho: 1
+          fail_SE: 1000000
+
+
+    fluid:
+      properties:
+          mu: 0.001
+          rho: 1
+          K: 1
+          edge: 0.04
+       
+
+simulation:
+  device: cpu # cpu or gpu
+  time_step: 0.0000001
+  total_steps: 2000000
+  g: 10 # acc due to gravity
+  write_every_%_steps: 1
